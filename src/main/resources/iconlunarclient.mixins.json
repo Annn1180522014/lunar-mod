@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.lunaricon.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"PlayerEntityRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
