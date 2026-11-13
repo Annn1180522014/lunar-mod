@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.PlayerRenderState;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.FontDescription;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.Identifier;
@@ -17,7 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(EntityRenderer.class)
 public abstract class PlayerEntityRendererMixin<T extends Entity, S extends EntityRenderState> {
 
-    private static final Identifier ICON_FONT = Identifier.fromNamespaceAndPath("iconlunarclient", "default");
+    private static final FontDescription ICON_FONT = new FontDescription.Resource(
+            Identifier.fromNamespaceAndPath("iconlunarclient", "default")
+    );
 
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     private void addLunarIconToSelf(T entity, S state, float tickDelta, CallbackInfo ci) {
